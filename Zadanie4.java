@@ -9,6 +9,6 @@ public class Zadanie4 {
 
         int hoursDifference = (zone1.getRawOffset() - zone2.getRawOffset()) / zone1.getDSTSavings();
 
-
+        System.out.println("Różnica czasu między strefami: " + hoursDifference + " godzin.");
     }
 }
