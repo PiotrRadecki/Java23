@@ -5,7 +5,10 @@ public class Zadanie4 {
 
         LocalDateTime dateTime = LocalDateTime.of(2023, 4, 7, 12, 0);
         TimeZone zone1 = TimeZone.getTimeZone("Europe/Warsaw");
-        TimeZone zone2 = TimeZone.getTimeZone("Pacific/Pago_Pago");
+        TimeZone zone2 = TimeZone.getTimeZone("America/New_York");
+
+        int hoursDifference = (zone1.getRawOffset() - zone2.getRawOffset()) / zone1.getDSTSavings();
+
 
     }
 }
