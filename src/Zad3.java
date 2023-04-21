@@ -23,7 +23,11 @@ public class Zad3 {
                 list.add(0,date);
                 if(list.size() == 1) {
 
-                }else {
+                }
+                else if (list.size() > 4){
+                    list.remove(4);
+                }
+                else {
                 for(int i=0; i<list.size()-1; i++) {
                     if(date.compareTo(list.get(i+1)) > 0){
                         Date temp = list.get(i+1);
