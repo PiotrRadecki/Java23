@@ -7,14 +7,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Zad3 {
+    static SimpleDateFormat simpleDateFormat;
+    static List<Date> list;
         public static void main(String[] args) throws ParseException {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
-            List<Date> list = new ArrayList<Date>();
+            simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            list = new ArrayList<Date>();
             Scanner scanner = new Scanner(System.in);
             while (true) {
                 String input = scanner.nextLine();
                 Date date = simpleDateFormat.parse(input);
                 if (list.contains(date)) {
+                    printList();
                     continue;
                 }
                 list.add(0,date);
@@ -29,12 +32,12 @@ public class Zad3 {
                     }
                 }
                 }
-
-                for (Date date1 : list) {
-                    System.out.println(simpleDateFormat.format(date1));
-                }
-
+                printList();
             }
         }
-
+        public static void printList() {
+            for (Date date1 : list) {
+                System.out.println(simpleDateFormat.format(date1));
+            }
+        }
 }
