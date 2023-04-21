@@ -14,11 +14,27 @@ public class Zad3 {
             while (true) {
                 String input = scanner.nextLine();
                 Date date = simpleDateFormat.parse(input);
-                list.add(date);
+                if (list.contains(date)) {
+                    continue;
+                }
+                list.add(0,date);
+                if(list.size() == 1) {
+
+                }else {
+                for(int i=0; i<list.size()-1; i++) {
+                    if(date.compareTo(list.get(i+1)) > 0){
+                        Date temp = list.get(i+1);
+                        list.set(i, temp);
+                        list.set(i+1, date);
+                    }
+                }
+                }
+
                 for (Date date1 : list) {
                     System.out.println(simpleDateFormat.format(date1));
                 }
 
             }
         }
+
 }
