@@ -11,6 +11,9 @@ public class Zad1 {
 
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
+                int result = i * j;
+                String formattedResult = String.format("%-" + maxCellWidth + "d", result);
             }
         }
+    }
     }
