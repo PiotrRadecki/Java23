@@ -13,7 +13,9 @@ public class Zad1 {
             for (int j = 1; j <= n; j++) {
                 int result = i * j;
                 String formattedResult = String.format("%-" + maxCellWidth + "d", result);
+                System.out.print(formattedResult);
             }
+            System.out.println();
         }
     }
     }
