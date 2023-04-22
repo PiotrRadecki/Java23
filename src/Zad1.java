@@ -6,5 +6,8 @@ public class Zad1 {
         System.out.print("Podaj liczbę naturalną n: ");
         int n = scanner.nextInt();
         scanner.close();
+
+        int maxCellWidth = Integer.toString(n * n).length() + 1;
+
     }
 }
