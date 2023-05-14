@@ -2,14 +2,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Calculator extends JFrame implements ActionListener {
+public class Zadanie3 extends JFrame implements ActionListener {
     private JTextField display;
     private JButton[] buttons;
     private String[] buttonLabels = { "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+" };
     private double firstNumber = 0.0;
     private char operation = ' ';
 
-    public Calculator() {
+    public Zadanie3() {
         setTitle("Calculator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -78,6 +78,6 @@ public class Calculator extends JFrame implements ActionListener {
         }
     }
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
+        Zadanie3 calculator = new Zadanie3();
     }
 }
