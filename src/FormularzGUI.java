@@ -16,12 +16,15 @@ public class FormularzGUI extends JFrame implements ActionListener {
 
         JLabel imieLabel = new JLabel("Imię:");
         imieField = new JTextField();
+        addPlaceholder(imieField, "Imię");
 
         JLabel nazwiskoLabel = new JLabel("Nazwisko:");
         nazwiskoField = new JTextField();
+        addPlaceholder(nazwiskoField, "Nazwisko");
 
         JLabel peselLabel = new JLabel("PESEL:");
         peselField = new JTextField();
+        addPlaceholder(peselField, "PESEL");
         peselField.setToolTipText("Wprowadź 11-cyfrowy numer PESEL");
 
         submitButton = new JButton("Zatwierdź");
