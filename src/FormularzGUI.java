@@ -12,6 +12,7 @@ public class FormularzGUI extends JFrame implements ActionListener {
     public FormularzGUI() {
         setTitle("Formularz");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400,400);
         setLayout(new GridLayout(4, 2,10,10));
 
         JLabel imieLabel = new JLabel("Imię:");
@@ -36,7 +37,6 @@ public class FormularzGUI extends JFrame implements ActionListener {
         add(nazwiskoField);
         add(peselLabel);
         add(peselField);
-        add(new JLabel()); // Pusta etykieta, aby wycentrować przycisk
         add(submitButton);
 
         pack();
@@ -51,7 +51,6 @@ public class FormularzGUI extends JFrame implements ActionListener {
 
             boolean isValid = validatePesel(pesel);
 
-            // Wyświetlanie wyników w oknie dialogowym
             String message;
             if (isValid) {
                 message = "Imię: " + imie + "\nNazwisko: " + nazwisko + "\nPESEL: " + pesel + "\n\nPESEL jest prawidłowy.";
@@ -87,10 +86,10 @@ public class FormularzGUI extends JFrame implements ActionListener {
 
     private static boolean validatePesel(String pesel) {
         if (pesel.length() != 11) {
-            return false; // PESEL musi mieć dokładnie 11 cyfr
+            return false;
         }
 
-        int[] factors = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3}; // Czynniki do obliczenia sumy kontrolnej
+        int[] factors = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
 
         int sum = 0;
         for (int i = 0; i < 10; i++) {
