@@ -77,5 +77,7 @@ public class Calculator extends JFrame implements ActionListener {
             display.setText(display.getText() + buttonLabel);
         }
     }
-
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+    }
 }
