@@ -49,10 +49,15 @@ public class FormularzGUI extends JFrame implements ActionListener {
             String nazwisko = nazwiskoField.getText();
             String pesel = peselField.getText();
 
-            // Przetwarzanie wprowadzonych danych
-            // Tutaj możesz umieścić kod do obsługi danych wprowadzonych przez użytkownika
+            boolean isValid = validatePesel(pesel);
 
-            String message = "Imię: " + imie + "\nNazwisko: " + nazwisko + "\nPESEL: " + pesel;
+            // Wyświetlanie wyników w oknie dialogowym
+            String message;
+            if (isValid) {
+                message = "Imię: " + imie + "\nNazwisko: " + nazwisko + "\nPESEL: " + pesel + "\n\nPESEL jest prawidłowy.";
+            } else {
+                message = "Imię: " + imie + "\nNazwisko: " + nazwisko + "\nPESEL: " + pesel + "\n\nPESEL jest nieprawidłowy.";
+            }
             JOptionPane.showMessageDialog(this, message, "Dane formularza", JOptionPane.INFORMATION_MESSAGE);
         }
     }
@@ -79,6 +84,30 @@ public class FormularzGUI extends JFrame implements ActionListener {
 
         add(textField);
     }
+
+    private static boolean validatePesel(String pesel) {
+        if (pesel.length() != 11) {
+            return false; // PESEL musi mieć dokładnie 11 cyfr
+        }
+
+        int[] factors = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3}; // Czynniki do obliczenia sumy kontrolnej
+
+        int sum = 0;
+        for (int i = 0; i < 10; i++) {
+            int digit = Character.getNumericValue(pesel.charAt(i));
+            sum += digit * factors[i];
+        }
+
+        int checksum = 10 - (sum % 10);
+        if (checksum == 10) {
+            checksum = 0;
+        }
+
+        int lastDigit = Character.getNumericValue(pesel.charAt(10));
+
+        return checksum == lastDigit;
+    }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new FormularzGUI());
