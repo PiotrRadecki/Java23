@@ -52,9 +52,8 @@ public class FormularzGUI extends JFrame implements ActionListener {
             // Przetwarzanie wprowadzonych danych
             // Tutaj możesz umieścić kod do obsługi danych wprowadzonych przez użytkownika
 
-            System.out.println("Imię: " + imie);
-            System.out.println("Nazwisko: " + nazwisko);
-            System.out.println("PESEL: " + pesel);
+            String message = "Imię: " + imie + "\nNazwisko: " + nazwisko + "\nPESEL: " + pesel;
+            JOptionPane.showMessageDialog(this, message, "Dane formularza", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
