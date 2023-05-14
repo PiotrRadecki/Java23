@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class FormularzGUI extends JFrame implements ActionListener {
     private JTextField imieField, nazwiskoField, peselField;
@@ -50,6 +52,29 @@ public class FormularzGUI extends JFrame implements ActionListener {
             System.out.println("Nazwisko: " + nazwisko);
             System.out.println("PESEL: " + pesel);
         }
+    }
+
+    private void addPlaceholder(JTextField textField, String placeholder) {
+        textField.setForeground(Color.GRAY);
+        textField.setText(placeholder);
+
+        textField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                if (textField.getText().equals(placeholder)) {
+                    textField.setText("");
+                    textField.setForeground(Color.BLACK);
+                }
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (textField.getText().isEmpty()) {
+                    textField.setForeground(Color.GRAY);
+                    textField.setText(placeholder);
+                }
+            }
+        });
+
+        add(textField);
     }
 
     public static void main(String[] args) {
