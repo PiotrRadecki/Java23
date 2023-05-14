@@ -32,5 +32,50 @@ public class Calculator extends JFrame implements ActionListener {
         pack();
         setVisible(true);
     }
+    public void actionPerformed(ActionEvent e) {
+        String buttonLabel = e.getActionCommand();
+
+        if (buttonLabel.equals("C")) {
+            display.setText("");
+        } else if (buttonLabel.equals("+")) {
+            firstNumber = Double.parseDouble(display.getText());
+            operation = '+';
+            display.setText("");
+        } else if (buttonLabel.equals("-")) {
+            firstNumber = Double.parseDouble(display.getText());
+            operation = '-';
+            display.setText("");
+        } else if (buttonLabel.equals("*")) {
+            firstNumber = Double.parseDouble(display.getText());
+            operation = '*';
+            display.setText("");
+        } else if (buttonLabel.equals("/")) {
+            firstNumber = Double.parseDouble(display.getText());
+            operation = '/';
+            display.setText("");
+        } else if (buttonLabel.equals("=")) {
+            double secondNumber = Double.parseDouble(display.getText());
+            double result = 0.0;
+
+            switch (operation) {
+                case '+':
+                    result = firstNumber + secondNumber;
+                    break;
+                case '-':
+                    result = firstNumber - secondNumber;
+                    break;
+                case '*':
+                    result = firstNumber * secondNumber;
+                    break;
+                case '/':
+                    result = firstNumber / secondNumber;
+                    break;
+            }
+
+            display.setText(Double.toString(result));
+        } else {
+            display.setText(display.getText() + buttonLabel);
+        }
+    }
 
 }
