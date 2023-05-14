@@ -22,6 +22,7 @@ public class FormularzGUI extends JFrame implements ActionListener {
 
         JLabel peselLabel = new JLabel("PESEL:");
         peselField = new JTextField();
+        peselField.setToolTipText("Wprowadź 11-cyfrowy numer PESEL");
 
         submitButton = new JButton("Zatwierdź");
         submitButton.addActionListener(this);
