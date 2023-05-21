@@ -109,10 +109,15 @@ public class Zad3 extends JFrame {
     }
 
     public static void main(String[] args) {
-        // Uruchamianie aplikacji w wątku zdarzeń (Event Dispatch Thread)
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 new Zad3();
             }
         });
+    }
+}
+class InvalidInputException extends Exception {
+    public InvalidInputException(String message) {
+        super(message);
+    }
 }
