@@ -3,6 +3,20 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Zad1 {
+
+    public static void main(String[] args) {
+        try {
+            readFile("nonexistent.txt");
+            divideNumbers(10, 0);
+            accessArrayElement();
+        } catch (FileNotFoundException e) {
+            System.out.println("Nie znaleziono pliku.");
+        } catch (ArithmeticException e) {
+            System.out.println("Dzielenie przez zero jest niedozwolone.");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Przekroczono zakres tablicy.");
+        }
+    }
     private static void readFile(String fileName) throws FileNotFoundException {
         File file = new File(fileName);
         Scanner scanner = new Scanner(file);
