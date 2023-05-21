@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Zad3 extends JFrame {
     private JTextField nicknameField;
@@ -54,10 +56,39 @@ public class Zad3 extends JFrame {
         add(genderPanel);
 
         JButton submitButton = new JButton("Zarejestruj");
-
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    validateForm();
+                    JOptionPane.showMessageDialog(Zad3.this, "Formularz rejestracyjny został zatwierdzony.");
+                    clearForm();
+                } catch (InvalidInputException ex) {
+                    JOptionPane.showMessageDialog(Zad3.this, "Błąd: " + ex.getMessage(), "Błąd rejestracji", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
         add(submitButton);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+    private void validateForm() throws InvalidInputException {
+        // Pobieranie wartości z pól tekstowych, pól hasła i wyboru płci
+        String nickname = nicknameField.getText();
+        String password = new String(passwordField.getPassword());
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
+        String email = emailField.getText();
+        String gender = maleRadioButton.isSelected() ? "mężczyzna" : "kobieta";
+
+        // Walidacja danych formularza
+        if (nickname.length() < 6 || !nickname.matches(".*\\d.*")) {
+            throw new InvalidInputException("Nick powinien składać się z co najmniej 6 znaków i zawierać przynajmniej jedną cyfrę.");
+        }
+
+        if (!email.endsWith("@gra.pl")) {
+            throw new InvalidInputException("Email musi kończyć się @gra.pl.");
+        }
     }
 }
