@@ -16,5 +16,15 @@ public class Zad1 {
         int result = a / b;
         System.out.println("Wynik dzielenia: " + result);
     }
+    private static void accessArrayElement() {
+        int[] array = {1, 2, 3};
+        int index = 5;
+        try {
+            int element = array[index];
+            System.out.println("Element tablicy: " + element);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw e;
+        }
+    }
 }
 
