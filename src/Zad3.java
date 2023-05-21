@@ -86,7 +86,13 @@ public class Zad3 extends JFrame {
         if (nickname.length() < 6 || !nickname.matches(".*\\d.*")) {
             throw new InvalidInputException("Nick powinien składać się z co najmniej 6 znaków i zawierać przynajmniej jedną cyfrę.");
         }
+        if (!Character.isUpperCase(firstName.charAt(0)) || !firstName.matches("[a-zA-Z]+")) {
+            throw new InvalidInputException("Imię powinno zaczynać się wielką literą i nie zawierać znaków inne niż litery.");
+        }
 
+        if (!Character.isUpperCase(lastName.charAt(0)) || !lastName.matches("[a-zA-Z]+")) {
+            throw new InvalidInputException("Nazwisko powinno zaczynać się wielką literą i nie zawierać znaków inne niż litery.");
+        }
         if (!email.endsWith("@gra.pl")) {
             throw new InvalidInputException("Email musi kończyć się @gra.pl.");
         }
