@@ -8,5 +8,13 @@ public class Zad1 {
         Scanner scanner = new Scanner(file);
         scanner.close();
     }
+
+    private static void divideNumbers(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Dzielenie przez zero");
+        }
+        int result = a / b;
+        System.out.println("Wynik dzielenia: " + result);
+    }
 }
 
