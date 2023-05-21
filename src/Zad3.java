@@ -91,4 +91,14 @@ public class Zad3 extends JFrame {
             throw new InvalidInputException("Email musi kończyć się @gra.pl.");
         }
     }
+
+    private void clearForm() {
+        // Czyszczenie pól formularza
+        nicknameField.setText("");
+        passwordField.setText("");
+        firstNameField.setText("");
+        lastNameField.setText("");
+        emailField.setText("");
+        maleRadioButton.setSelected(true);
+    }
 }
