@@ -101,4 +101,12 @@ public class Zad3 extends JFrame {
         emailField.setText("");
         maleRadioButton.setSelected(true);
     }
+
+    public static void main(String[] args) {
+        // Uruchamianie aplikacji w wątku zdarzeń (Event Dispatch Thread)
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Zad3();
+            }
+        });
 }
