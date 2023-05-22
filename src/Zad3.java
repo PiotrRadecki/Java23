@@ -13,10 +13,9 @@ public class Zad3 extends JFrame {
     private JRadioButton femaleRadioButton;
 
     public Zad3() {
-        // Ustawianie właściwości okna
         setTitle("Formularz rejestracyjny");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(7, 2));
+        setLayout(new GridLayout(8, 2));
 
         JLabel nicknameLabel = new JLabel("Nick:");
         nicknameField = new JTextField();
@@ -73,8 +72,8 @@ public class Zad3 extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+
     private void validateForm() throws InvalidInputException {
-        // Pobieranie wartości z pól tekstowych, pól hasła i wyboru płci
         String nickname = nicknameField.getText();
         String password = new String(passwordField.getPassword());
         String firstName = firstNameField.getText();
@@ -82,7 +81,6 @@ public class Zad3 extends JFrame {
         String email = emailField.getText();
         String gender = maleRadioButton.isSelected() ? "mężczyzna" : "kobieta";
 
-        // Walidacja danych formularza
         if (nickname.length() < 6 || !nickname.matches(".*\\d.*")) {
             throw new InvalidInputException("Nick powinien składać się z co najmniej 6 znaków i zawierać przynajmniej jedną cyfrę.");
         }
@@ -96,10 +94,16 @@ public class Zad3 extends JFrame {
         if (!email.endsWith("@gra.pl")) {
             throw new InvalidInputException("Email musi kończyć się @gra.pl.");
         }
+
+        if (gender.equals("mężczyzna") && !(firstName.endsWith("ek") || firstName.endsWith("usz"))) {
+            throw new InvalidInputException("Nieprawidłowe imię męskie. Imiona męskie powinny kończyć się na \"-ek\" lub \"-usz\".");
+        }
+        if (gender.equals("kobieta") && !(firstName.endsWith("ta") || firstName.endsWith("na"))) {
+            throw new InvalidInputException("Nieprawidłowe imię żeńskie. Imiona żeńskie powinny kończyć się na \"-ta\" lub \"-na\".");
+        }
     }
 
     private void clearForm() {
-        // Czyszczenie pól formularza
         nicknameField.setText("");
         passwordField.setText("");
         firstNameField.setText("");
@@ -116,6 +120,7 @@ public class Zad3 extends JFrame {
         });
     }
 }
+
 class InvalidInputException extends Exception {
     public InvalidInputException(String message) {
         super(message);
