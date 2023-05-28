@@ -30,7 +30,15 @@ public class Zad3 {
         endTime = System.nanoTime();
         long arrayListIterationTime = endTime - startTime;
         System.out.println("Czas iteracji po wszystkich elementach ArrayList: " + arrayListIterationTime + " ns");
-
+        // Iteracja po wszystkich elementach - LinkedList
+        startTime = System.nanoTime();
+        for (Integer num : linkedList) {
+            // Puste polecenie
+        }
+        endTime = System.nanoTime();
+        long linkedListIterationTime = endTime - startTime;
+        System.out.println("Czas iteracji po wszystkich elementach LinkedList: " + linkedListIterationTime + " ns");
+    }
     }
 
 }
