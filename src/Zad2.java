@@ -10,6 +10,12 @@ public class Zad2{
             List<Integer> arrayList = new ArrayList<>();
             long arrayListAddTime = measureAddTime(arrayList, NUM_ELEMENTS);
             long arrayListRemoveTime = measureRemoveTime(arrayList);
+            // LinkedList
+            List<Integer> linkedList = new LinkedList<>();
+            long linkedListAddTime = measureAddTime(linkedList, NUM_ELEMENTS);
+            long linkedListRemoveTime = measureRemoveTime(linkedList);
+
+
 
         }
 }
