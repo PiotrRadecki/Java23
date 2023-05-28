@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class Student implements Comparable<Student> {
-    private int rocznik;
-    private String nazwisko;
-    private double srednia;
+    private final int rocznik;
+    private final String nazwisko;
+    private final double srednia;
 
     public Student(int rocznik, String nazwisko, double srednia) {
         this.rocznik = rocznik;
