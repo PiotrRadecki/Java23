@@ -11,5 +11,17 @@ public class Student implements Comparable<Student> {
         this.srednia = srednia;
     }
 
+    public int getRocznik() {
+        return rocznik;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
+    public double getSrednia() {
+        return srednia;
+    }
+
 
 }
