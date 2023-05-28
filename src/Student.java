@@ -23,5 +23,21 @@ public class Student implements Comparable<Student> {
         return srednia;
     }
 
+    @Override
+    public int compareTo(Student other) {
+        // Porównanie rocznika
+        if (rocznik != other.rocznik) {
+            return Integer.compare(rocznik, other.rocznik);
+        }
+
+        // Porównanie średniej
+        if (srednia != other.srednia) {
+            return Double.compare(srednia, other.srednia);
+        }
+
+        // Porównanie nazwiska
+        return nazwisko.compareTo(other.nazwisko);
+    }
+
 
 }
