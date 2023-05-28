@@ -25,22 +25,18 @@ public class Student implements Comparable<Student> {
 
     @Override
     public int compareTo(Student other) {
-        // Porównanie rocznika
         if (rocznik != other.rocznik) {
             return Integer.compare(rocznik, other.rocznik);
         }
 
-        // Porównanie średniej
         if (srednia != other.srednia) {
             return Double.compare(srednia, other.srednia);
         }
 
-        // Porównanie nazwiska
         return nazwisko.compareTo(other.nazwisko);
     }
 
     public static void main(String[] args) {
-        // Przykładowe użycie sortowania
         List<Student> listaStudentow = new ArrayList<>();
         listaStudentow.add(new Student(2000, "Kowalski", 4.5));
         listaStudentow.add(new Student(2001, "Nowak", 3.9));
