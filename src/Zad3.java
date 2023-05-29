@@ -22,19 +22,5 @@ public class Zad3 {
         endTime = System.nanoTime();
         long linkedListAddTime = endTime - startTime;
         System.out.println("Czas dodawania 10 000 elementów na początek LinkedList: " + linkedListAddTime + " ns");
-        // Iteracja po wszystkich elementach - ArrayList
-        startTime = System.nanoTime();
-
-        endTime = System.nanoTime();
-        long arrayListIterationTime = endTime - startTime;
-        System.out.println("Czas iteracji po wszystkich elementach ArrayList: " + arrayListIterationTime + " ns");
-        // Iteracja po wszystkich elementach - LinkedList
-        startTime = System.nanoTime();
-
-        endTime = System.nanoTime();
-        long linkedListIterationTime = endTime - startTime;
-        System.out.println("Czas iteracji po wszystkich elementach LinkedList: " + linkedListIterationTime + " ns");
     }
     }
-
-}
