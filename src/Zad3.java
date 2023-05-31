@@ -30,7 +30,30 @@ public class Zad3 extends JFrame {
                 statusLabel.setText("Zakończono (bez wątków)");
             }
         });
+        withThreadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Tworzenie wątku
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Symulacja długotrwałej operacji
+                        simulateLongOperation();
+                        // Aktualizacja etykiety w wątku interfejsowym
+                        SwingUtilities.invokeLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                statusLabel.setText("Zakończono (z wątkami)");
+                            }
+                        });
+                    }
+                });
+                thread.start();
+            }
+        });
     }
+}
+
 
 
 
