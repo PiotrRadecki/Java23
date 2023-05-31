@@ -37,6 +37,6 @@ public class Zad2 {
             e.printStackTrace();
         }
 
-        
+        System.out.println("Counter: " + counter.getCount());
     }
 }
