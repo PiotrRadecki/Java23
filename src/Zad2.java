@@ -27,5 +27,9 @@ public class Zad2 {
         });
 
 
+        thread1.start();
+        thread2.start();
+
+
     }
 }
