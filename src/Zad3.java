@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 public class Zad3 extends JFrame {
 
-    private JButton noThreadButton;
-    private JButton withThreadButton;
-    private JLabel statusLabel;
+    private final JButton noThreadButton;
+    private final JButton withThreadButton;
+    private final JLabel statusLabel;
 
     public Zad3() {
         setTitle("Porównanie wersji");
