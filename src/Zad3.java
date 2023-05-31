@@ -59,6 +59,10 @@ public class Zad3 extends JFrame {
             e.printStackTrace();
         }
     }
+    public static void main(String[] args) {
+        Zad3 example = new Zad3();
+        example.setVisible(true);
+    }
 }
 
 
