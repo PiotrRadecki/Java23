@@ -52,6 +52,13 @@ public class Zad3 extends JFrame {
             }
         });
     }
+    private void simulateLongOperation() {
+        try {
+            Thread.sleep(5000); // Symulacja długotrwałej operacji
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 
