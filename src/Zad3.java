@@ -22,7 +22,15 @@ public class Zad3 extends JFrame {
         add(noThreadButton);
         add(withThreadButton);
         add(statusLabel);
-
+        noThreadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Symulacja długotrwałej operacji
+                simulateLongOperation();
+                statusLabel.setText("Zakończono (bez wątków)");
+            }
+        });
     }
-}
+
+
 
